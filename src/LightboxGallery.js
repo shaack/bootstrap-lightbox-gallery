@@ -42,7 +42,7 @@ export class LightboxGallery {
                 </div>`
             carouselItems += carouselItem
         })
-        this.state.carousel = DomUtils.createElement(`
+        this.state.carouselElement = DomUtils.createElement(`
 <div id="${this.props.id}" class="carousel slide">
   ${carouselItems}
   <button class="carousel-control-prev" type="button" data-bs-target="#${this.props.id}" data-bs-slide="prev">
@@ -56,36 +56,18 @@ export class LightboxGallery {
 </div>`)
     }
 
-    /*
-    <div id="carouselExample" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="..." class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    */
-
     open(targetLink) {
-        // todo add `active`, when displaying the carousel
+        // TODO add `active`, when displaying the carousel
+        const carouselItems = this.state.carouselElement.querySelectorAll(".carousel-item")
+        carouselItems.forEach((carouselItem) => {
+            carouselItem.classList.remove("active")
+        })
+        const image = this.state.carouselElement.querySelector(`[src="${targetLink.href}"]`)
+        image.parentElement.classList.add("active")
         if (targetLink) {
             bootstrap.showModal({
                 title: this.state.title,
-                body: this.state.carousel
+                body: this.state.carouselElement.innerHTML
             })
         }
     }
