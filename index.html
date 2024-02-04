@@ -4,13 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <title>bootstrap-input-spinner</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
 <section class="container py-5">
     <h1>bootstrap-lightbox-gallery</h1>
     <p><i>A simple lightbox gallery with Bootstrap 5</i></p>
+    <div class="row g-3">
+        <div class="col-sm-6 col-md-4">
+            <a href="https://via.placeholder.com/1024x768" data-gallery="gallery-1" class="d-block">
+                <figure>
+                    <img src="https://via.placeholder.com/1024x768" class="img-fluid" alt="Lorem ipsum dolor sit amet"/>
+                    <figcaption class="visually-hidden">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </figcaption>
+                </figure>
+            </a>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <a href="https://via.placeholder.com/768x1024" data-gallery="gallery-1" class="d-block">
+                <figure>
+                    <img src="https://via.placeholder.com/768x1024" class="img-fluid" alt="Quick brown fox jumps">
+                    <figcaption class="visually-hidden">
+                        Quick brown fox jumps over the lazy dog. All their equipment and instruments are alive. A red flair silhouetted the jagged edge of a wing.Quick brown fox jumps over the lazy dog. All their equipment and instruments are alive.
+                    </figcaption>
+                </figure>
+            </a>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <a href="https://via.placeholder.com/1024x1024" data-gallery="gallery-1" class="d-block">
+                <figure>
+                    <img src="https://via.placeholder.com/1024x1024" class="img-fluid" alt="Far far away">
+                    <figcaption class="visually-hidden">
+                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                    </figcaption>
+                </figure>
+            </a>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <a href="https://via.placeholder.com/800x800" data-gallery="gallery-2" class="d-block">
+                <figure>
+                    <img src="https://via.placeholder.com/800x800" class="img-fluid" alt="The European languages">
+                    <figcaption class="visually-hidden">
+                        The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.The European languages are members of the same family. Their separate existence is a myth.
+                    </figcaption>
+                </figure>
+            </a>
+        </div>
+        <div class="col-sm-6 col-md-8">
+            <a href="https://via.placeholder.com/1600x900" data-gallery="gallery-2" class="d-block">
+                <figure>
+                    <img src="https://via.placeholder.com/1600x900" class="img-fluid" alt="The sky was cloudless">
+                    <figcaption class="visually-hidden">
+                        The sky was cloudless and of a deep dark blue. The spectacle before us was indeed sublime. All human things are subject to decay.The sky was cloudless and of a deep dark blue.
+                    </figcaption>
+                </figure>
+            </a>
+        </div>
+    </div>
 </section>
+<script type="module">
+    import {LightboxGallery} from "./src/LightboxGallery.js"
+
+    new LightboxGallery(document.querySelectorAll("[data-gallery='gallery-1']"))
+    // new LightboxGallery(document.querySelectorAll("[data-gallery='gallery-2']"))
+</script>
 </body>
 </html>

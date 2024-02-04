@@ -13,5 +13,8 @@
     "Lightbox"
   ],
   "author": "Stefan Haack (https://shaack.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap-show-modal": "^5.1.3"
+  }
 }
