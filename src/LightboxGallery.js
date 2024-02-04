@@ -3,34 +3,57 @@
  * Repository: https://github.com/shaack/bootstrap-input-spinner
  * License: MIT, see file 'LICENSE'
  */
+import {DomUtils} from "cm-web-modules/src/utils/DomUtils.js"
+import "bootstrap-show-modal/src/ShowModal.js"
 
 export class LightboxGallery {
 
-    constructor(elements, props = {}) {
+    constructor(elements, title, props = {}) {
         this.props = {
+            id: "lightboxGallery"
         }
         Object.assign(this.props, props)
-        this.elements = elements
-        this.figuresData = []
-        this.init()
+        // this.elements = elements
+        this.state = {
+            title: title,
+            carousel: undefined
+        }
+        this.init(elements)
     }
 
-    init() {
-        this.elements.forEach((element) => {
-            element.addEventListener("click", (event) => {
-                event.preventDefault()
-                this.open(event.target)
-            })
+    init(elements) {
+        let carouselItems = ""
+        elements.forEach((element) => {
             const img = element.querySelector("img")
-            const figureData = {
+            const itemData = {
                 url: element.href,
                 alt: img.alt,
                 title: img.title,
                 caption: element.querySelector("figcaption").innerHTML.trim()
             }
-            this.figuresData.push(figureData)
+            element.addEventListener("click", (event) => {
+                event.preventDefault()
+                const targetLink = event.target.closest("a")
+                this.open(targetLink)
+            })
+            const carouselItem = `
+                <div class="carousel-item">
+                  <img src="${itemData.url}" class="d-block w-100" title="${itemData.title}" alt="${itemData.alt}"/>
+                </div>`
+            carouselItems += carouselItem
         })
-        console.log(this.figuresData)
+        this.state.carousel = DomUtils.createElement(`
+<div id="${this.props.id}" class="carousel slide">
+  ${carouselItems}
+  <button class="carousel-control-prev" type="button" data-bs-target="#${this.props.id}" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Vorheriges Bild</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#${this.props.id}" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Nächstes Bild</span>
+  </button>
+</div>`)
     }
 
     /*
@@ -57,32 +80,13 @@ export class LightboxGallery {
     </div>
     */
 
-    open(target) {
-        const targetLink = target.closest("a")
+    open(targetLink) {
+        // todo add `active`, when displaying the carousel
         if (targetLink) {
-            // create a layer, display a Bootstrap Carousel with all images of this gallery
-            const layer = document.createElement("div")
-            layer.classList.add("lightbox-gallery-layer")
-            layer.innerHTML = `
-                <div class="modal" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators"></ol>
-                                <div class="carousel-inner"></div>
-                                <a class="carousel-control-prev" href="#" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>`
-            document.body.appendChild(layer)
+            bootstrap.showModal({
+                title: this.state.title,
+                body: this.state.carousel
+            })
         }
     }
 }
