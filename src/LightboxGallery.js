@@ -37,14 +37,18 @@ export class LightboxGallery {
                 this.open(targetLink)
             })
             const carouselItem = `
-                <div class="carousel-item">
-                  <img src="${itemData.url}" class="d-block w-100" title="${itemData.title}" alt="${itemData.alt}"/>
+                <div class="carousel-item h-100">
+                    <div class="d-flex align-items-center h-100 w-100">
+                        <img src="${itemData.url}" class="d-block mx-auto" title="${itemData.title}" alt="${itemData.alt}"/>
+                    </div>
                 </div>`
             carouselItems += carouselItem
         })
         this.state.carouselElement = DomUtils.createElement(`
-<div id="${this.props.id}" class="carousel slide">
-  ${carouselItems}
+<div id="${this.props.id}" class="carousel slide h-100">
+  <div class="carousel-inner h-100">
+    ${carouselItems}
+  </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#${this.props.id}" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Vorheriges Bild</span>
@@ -63,11 +67,13 @@ export class LightboxGallery {
             carouselItem.classList.remove("active")
         })
         const image = this.state.carouselElement.querySelector(`[src="${targetLink.href}"]`)
-        image.parentElement.classList.add("active")
+        image.closest(".carousel-item").classList.add("active")
         if (targetLink) {
             bootstrap.showModal({
                 title: this.state.title,
-                body: this.state.carouselElement.innerHTML
+                body: this.state.carouselElement.outerHTML,
+                modalClass: "",
+                modalDialogClass: "modal-fullscreen"
             })
         }
     }
