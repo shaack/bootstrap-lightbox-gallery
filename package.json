@@ -1,0 +1,17 @@
+{
+  "name": "bootstrap-lightbox-gallery",
+  "version": "1.0.0",
+  "description": "A nice lightbox gallery component for Bootstrap 5",
+  "browser": "./src/bootstrap-input-spinner.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Bootstrap",
+    "JS",
+    "ES6",
+    "Lightbox"
+  ],
+  "author": "Stefan Haack (https://shaack.com)",
+  "license": "MIT"
+}
