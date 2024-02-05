@@ -46,7 +46,7 @@ export class LightboxGallery {
             }
             const carouselItem = `
                 <div class="carousel-item h-100" data-bs-index="${this.state.itemCount}">
-                    <div class="d-flex align-items-center h-100 w-100">
+                    <div class="d-flex align-items-center h-100 w-100 bg-dark">
                         <img src="${itemData.url}" class="d-block mx-auto img-fluid" title="${itemData.title}" alt="${itemData.alt}"/>
                         ${caption}
                     </div>
@@ -55,7 +55,7 @@ export class LightboxGallery {
             this.state.itemCount++
         })
         this.state.carouselElement = DomUtils.createElement(`
-<div id="${this.props.id}" class="carousel slide h-100">
+<div id="${this.props.id}" class="carousel slide h-100 carousel-fade">
   <div class="carousel-inner h-100">
     ${carouselItems}
   </div>
