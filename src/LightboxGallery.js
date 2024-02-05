@@ -14,7 +14,6 @@ export class LightboxGallery {
             props: undefined
         }
         Object.assign(this.props, props)
-        // this.elements = elements
         this.state = {
             title: props.title,
             carousel: undefined,
@@ -72,7 +71,6 @@ export class LightboxGallery {
     }
 
     open(targetLink) {
-        // TODO add `active`, when displaying the carousel
         const carouselItems = this.state.carouselElement.querySelectorAll(".carousel-item")
         carouselItems.forEach((carouselItem) => {
             carouselItem.classList.remove("active")
@@ -99,8 +97,6 @@ export class LightboxGallery {
     }
 
     updateIndex() {
-        // const activeItem = this.state.carouselElement.querySelector(".carousel-item.active")
-        // this.state.currentIndex = parseInt(activeItem.getAttribute("data-bs-index"))
         this.modal.titleElement.querySelector(".carousel-index").innerText = `${this.state.currentIndex + 1} / ${this.state.itemCount}`
     }
 }
