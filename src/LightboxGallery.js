@@ -40,7 +40,7 @@ export class LightboxGallery {
             })
             let caption = ""
             if (itemData.caption) {
-                caption = `<div class="rounded carousel-caption d-none d-md-block p-2 text-light bg-dark bg-opacity-50">
+                caption = `<div class="rounded carousel-caption p-2 text-light bg-dark bg-opacity-50">
                              ${itemData.caption}
                            </div>`
             }
