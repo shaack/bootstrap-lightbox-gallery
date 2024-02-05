@@ -15,7 +15,7 @@
   "author": "Stefan Haack (https://shaack.com)",
   "license": "MIT",
   "dependencies": {
-    "bootstrap-show-modal": "^6.0.4",
+    "bootstrap-show-modal": "^6.0.6",
     "cm-web-modules": "^2.1.3"
   }
 }

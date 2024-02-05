@@ -83,12 +83,12 @@ export class LightboxGallery {
             this.modal = bootstrap.showModal({
                 theme: "dark",
                 title: this.state.title + " <small class='text-muted ms-3 pb-1 carousel-index'></small>",
+                headerClass: "border-0",
                 body: this.state.carouselElement.outerHTML,
                 modalDialogClass: "modal-fullscreen"
             })
             const carouselElement = this.modal.element.querySelector(".carousel")
             carouselElement.addEventListener('slide.bs.carousel', event => {
-                console.log("slide.bs.carousel", event)
                 this.state.currentIndex = event.to
                 this.updateIndex()
             })
