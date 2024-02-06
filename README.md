@@ -2,7 +2,7 @@
 
 A Bootstrap component to display a gallery of images in a lightbox.
 
-[Demo page]](https://shaack.com/projekte/bootstrap-lightbox-gallery)
+[Demo page](https://shaack.com/projekte/bootstrap-lightbox-gallery)
 
 ## Installation
 
