@@ -1,6 +1,6 @@
 /**
  * Author and copyright: Stefan Haack (https://shaack.com)
- * Repository: https://github.com/shaack/bootstrap-input-spinner
+ * Repository: https://github.com/shaack/bootstrap-lightbox-gallery
  * License: MIT, see file 'LICENSE'
  */
 import {DomUtils} from "cm-web-modules/src/utils/DomUtils.js"
