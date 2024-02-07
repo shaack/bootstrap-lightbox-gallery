@@ -15,3 +15,37 @@ A Bootstrap component to display a gallery of images in a lightbox.
 npm install bootstrap-lightbox-gallery
 ```
 
+## Usage
+
+Show the images in the page as figures with optional hidden caption.
+
+```html
+<a href="https://via.placeholder.com/1024x768" data-gallery="gallery-1" class="d-block">
+    <figure>
+        <img src="https://via.placeholder.com/1024x768" class="img-fluid" alt="Lorem ipsum dolor sit amet"/>
+        <figcaption class="visually-hidden">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </figcaption>
+    </figure>
+</a>
+```
+
+Create the LightboxGallery instance
+
+```html
+<!-- add `cm-web-modules` and `bootstrap-show-modal` to the importmap (if no transpiler is used) -->
+<script type="importmap">
+    {
+        "imports": {
+            "cm-web-modules/": "./node_modules/cm-web-modules/",
+            "bootstrap-show-modal/": "./node_modules/bootstrap-show-modal/"
+        }
+    }
+</script>
+<!-- create the LightboxGallery -->
+<script type="module">
+    import {LightboxGallery} from "./src/LightboxGallery.js"
+
+    new LightboxGallery(document.querySelectorAll("[data-gallery='gallery-1']"), {title: "My Gallery"})
+</script>
+```
