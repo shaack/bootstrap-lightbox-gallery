@@ -10,8 +10,7 @@ export class LightboxGallery {
 
     constructor(elements, props = {}) {
         this.props = {
-            id: "lightboxGallery",
-            props: undefined
+            id: "lightboxGallery" // change this, if you have multiple galleries on one page
         }
         Object.assign(this.props, props)
         this.state = {
