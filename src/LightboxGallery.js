@@ -3,13 +3,11 @@
  * Repository: https://github.com/shaack/bootstrap-lightbox-gallery
  * License: MIT, see file 'LICENSE'
  */
-import {DomUtils} from "cm-web-modules/src/utils/DomUtils.js"
 import "bootstrap-show-modal/src/ShowModal.js"
 
 export class LightboxGallery {
 
     constructor(elements, props = {}) {
-        console.log("Hello from LightboxGallery")
         this.props = {
             id: "lightboxGallery" // change this, if you have multiple galleries on one page
         }
