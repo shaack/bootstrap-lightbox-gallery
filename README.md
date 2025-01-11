@@ -2,12 +2,17 @@
 
 A Bootstrap component to display a gallery of images in a lightbox.
 
-[Demo page](https://shaack.com/projekte/bootstrap-lightbox-gallery)
+![Show images in your page](https://shaack.com/projekte/assets/img/bootstrap-lightbox-gallery-page.png)
+*Show images in your page*
 
-<img width="1544" alt="Bootstrap 5 lightbox gallery" src="https://github.com/shaack/bootstrap-lightbox-gallery/assets/832120/dce09d2c-487d-4422-ae5e-cdd118119d3f">
+![On click large versions of the images are displayed in a lightbox*](https://shaack.com/projekte/assets/img/bootstrap-lightbox-gallery-lightbox.png)
+*On click large versions of the images are displayed in a lightbox*
 
-<img width="1544" alt="Bootstrap 5 lightbox component" src="https://github.com/shaack/bootstrap-lightbox-gallery/assets/832120/8c9cccb5-deaf-4961-92ab-6b6764e26e16">
+## References
 
+- [Demo page with usage examples](https://shaack.com/projekte/bootstrap-lightbox-gallery)
+- [GitHub repository](https://github.com/shaack/bootstrap-lightbox-gallery)
+- [npm package](https://www.npmjs.com/package/bootstrap-lightbox-gallery)
 
 ## Installation
 
