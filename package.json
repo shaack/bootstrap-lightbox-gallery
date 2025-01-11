@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-lightbox-gallery",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A nice lightbox gallery component for Bootstrap 5",
   "browser": "./src/bootstrap-input-spinner.js",
   "scripts": {
