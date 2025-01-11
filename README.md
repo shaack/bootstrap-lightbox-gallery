@@ -64,3 +64,8 @@ Create the LightboxGallery instance.
     new LightboxGallery(document.querySelectorAll("[data-gallery='gallery-1']"), {title: "My Gallery"})
 </script>
 ```
+
+---
+
+Find more high quality modules from [shaack.com](https://shaack.com)
+on [our projects page](https://shaack.com/works).
