@@ -81,7 +81,11 @@
 <script type="module">
     import {LightboxGallery} from "./src/LightboxGallery.js"
 
-    const gallery = new LightboxGallery(document.querySelectorAll("[data-gallery='gallery-1']"), {title: "Gallery 1"})
+    new LightboxGallery(document.querySelectorAll("[data-gallery='gallery-1']"),
+            {
+                title: "Gallery 1",
+                theme: "dark"
+            })
 </script>
 </body>
 </html>

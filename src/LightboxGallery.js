@@ -10,9 +10,12 @@ export class LightboxGallery {
 
     constructor(elements, props = {}) {
         this.props = {
-            id: "lightboxGallery" // change this, if you have multiple galleries on one page
+            id: "lightboxGallery", // change this, if you have multiple galleries on one page
+            title: "Lightbox Gallery", // set the name, it will be displayed
+            theme: "dark" // set to "light", if you want to display the images on light background
         }
         Object.assign(this.props, props)
+        this.props.isDark = props.theme === "dark"
         this.state = {
             title: props.title,
             carousel: undefined,
@@ -39,13 +42,13 @@ export class LightboxGallery {
             })
             let caption = ""
             if (itemData.caption) {
-                caption = `<div class="rounded carousel-caption p-2 text-light bg-dark bg-opacity-50">
+                caption = `<div class="rounded carousel-caption p-2 ${this.props.isDark ? "text-light bg-dark" : "text-body bg-light"} bg-opacity-50">
                              ${itemData.caption}
                            </div>`
             }
             const carouselItem = `
                 <div class="carousel-item h-100" data-bs-index="${this.state.itemCount}">
-                    <div class="d-flex align-items-center h-100 w-100 bg-dark">
+                    <div class="d-flex align-items-center h-100 w-100 ${this.props.isDark ? "bg-dark" : "bg-white"}">
                         <img src="${itemData.url}" class="d-block mx-auto img-fluid" title="${itemData.title}" alt="${itemData.alt}"/>
                         ${caption}
                     </div>
@@ -58,11 +61,11 @@ export class LightboxGallery {
   <div class="carousel-inner h-100">
     ${carouselItems}
   </div>
-  <button style="filter: invert(1) grayscale(100);" class="carousel-control-prev" type="button" data-bs-target="#${this.props.id}" data-bs-slide="prev">
+  <button style="filter: invert(1) grayscale(100)" class="carousel-control-prev" type="button" data-bs-target="#${this.props.id}" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Vorheriges Bild</span>
   </button>
-  <button style="filter: invert(1) grayscale(100);"  class="carousel-control-next" type="button" data-bs-target="#${this.props.id}" data-bs-slide="next">
+  <button style="filter: invert(1) grayscale(100)"  class="carousel-control-next" type="button" data-bs-target="#${this.props.id}" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Nächstes Bild</span>
   </button>
@@ -80,7 +83,7 @@ export class LightboxGallery {
         this.state.currentIndex = parseInt(activeItem.getAttribute("data-bs-index"))
         if (targetLink) {
             this.modal = bootstrap.showModal({
-                theme: "dark",
+                theme: this.props.isDark ? "dark" : undefined,
                 title: this.state.title + " <small class='text-muted ms-3 pb-1 carousel-index'></small>",
                 headerClass: "border-0",
                 body: this.state.carouselElement.outerHTML,

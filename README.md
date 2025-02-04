@@ -58,12 +58,29 @@ Create the LightboxGallery instance.
     }
 </script>
 <!-- create the LightboxGallery -->
+<!-- new LightboxGallery(context, props) -->
 <script type="module">
     import {LightboxGallery} from "bootstrap-lightbox-gallery/src/LightboxGallery.js"
 
-    new LightboxGallery(document.querySelectorAll("[data-gallery='gallery-1']"), {title: "My Gallery"})
+    new LightboxGallery(document.querySelectorAll("[data-gallery='gallery-1']"), 
+            {
+                id: "gallery-45c11a", // set this, if you have multiple galleries on one page
+                title: "My Lightbox Gallery", // set the name, it will be displayed
+                backgroundTheme: "dark" // set to "light", if you want to display the images on light background
+            })
 </script>
 ```
+
+#### Properties
+
+```js
+this.props = {
+    id: "lightboxGallery", // change this, if you have multiple galleries on one page
+    backgroundTheme: "dark" // set to "light", if you want to display the images on light background 
+}
+```
+
+new LightboxGallery(document.querySelectorAll("[data-gallery='gallery-1']"), {title: "My Gallery"})
 
 ---
 
