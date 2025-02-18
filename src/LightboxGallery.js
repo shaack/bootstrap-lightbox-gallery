@@ -42,7 +42,7 @@ export class LightboxGallery {
             })
             let caption = ""
             if (itemData.caption) {
-                caption = `<div class="rounded carousel-caption p-2 ${this.props.isDark ? "text-light bg-dark" : "text-body bg-light"} bg-opacity-50">
+                caption = `<div class="rounded carousel-caption p-2 ${this.props.isDark ? "text-light bg-dark" : "text-body bg-light"} bg-opacity-75">
                              ${itemData.caption}
                            </div>`
             }
