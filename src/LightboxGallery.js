@@ -87,7 +87,7 @@ export class LightboxGallery {
                 title: this.state.title + " <small class='text-muted ms-3 pb-1 carousel-index'></small>",
                 headerClass: "border-0",
                 body: this.state.carouselElement.outerHTML,
-                modalDialogClass: "modal-fullscreen"
+                modalDialogClass: "modal-fullscreen modal-bootstrap-lightbox-gallery"
             })
             const carouselElement = this.modal.element.querySelector(".carousel")
             carouselElement.addEventListener('slide.bs.carousel', event => {
