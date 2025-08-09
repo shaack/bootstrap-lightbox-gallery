@@ -49,7 +49,7 @@ export class LightboxGallery {
             const carouselItem = `
                 <div class="carousel-item h-100" data-bs-index="${this.state.itemCount}">
                     <div class="d-flex align-items-center h-100 w-100 ${this.props.isDark ? "bg-dark" : "bg-white"}">
-                        <img src="${itemData.url}" class="d-block mx-auto img-fluid" title="${itemData.title}" alt="${itemData.alt}"/>
+                        <img src="${itemData.url}" class="d-block mx-auto img-fluid h-100" title="${itemData.title}" alt="${itemData.alt}"/>
                         ${caption}
                     </div>
                 </div>`
