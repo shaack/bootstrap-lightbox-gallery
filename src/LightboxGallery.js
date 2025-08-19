@@ -65,7 +65,7 @@ export class LightboxGallery {
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Vorheriges Bild</span>
   </button>
-  <button style="filter: invert(1)"  class="carousel-control-next" type="button" data-bs-target="#${this.props.id}" data-bs-slide="next">
+  <button style="filter: invert(1)" class="carousel-control-next" type="button" data-bs-target="#${this.props.id}" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Nächstes Bild</span>
   </button>
