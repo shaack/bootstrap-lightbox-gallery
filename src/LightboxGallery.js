@@ -61,11 +61,11 @@ export class LightboxGallery {
   <div class="carousel-inner h-100">
     ${carouselItems}
   </div>
-  <button style="filter: invert(1) grayscale(100)" class="carousel-control-prev" type="button" data-bs-target="#${this.props.id}" data-bs-slide="prev">
+  <button style="filter: invert(1)" class="carousel-control-prev" type="button" data-bs-target="#${this.props.id}" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Vorheriges Bild</span>
   </button>
-  <button style="filter: invert(1) grayscale(100)"  class="carousel-control-next" type="button" data-bs-target="#${this.props.id}" data-bs-slide="next">
+  <button style="filter: invert(1)"  class="carousel-control-next" type="button" data-bs-target="#${this.props.id}" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Nächstes Bild</span>
   </button>
