@@ -42,7 +42,7 @@ export class LightboxGallery {
             })
             let caption = ""
             if (itemData.caption) {
-                caption = `<div class="rounded carousel-caption p-2 ${this.props.isDark ? "text-light bg-dark" : "text-body bg-light"} bg-opacity-75">
+                caption = `<div class="rounded carousel-caption p-2 ${this.props.isDark ? "bg-dark" : "bg-light"} bg-opacity-75">
                              ${itemData.caption}
                            </div>`
             }
@@ -57,15 +57,15 @@ export class LightboxGallery {
             this.state.itemCount++
         })
         this.state.carouselElement = DomUtils.createElement(`
-<div id="${this.props.id}" class="carousel slide h-100 carousel-fade">
+<div id="${this.props.id}" ${this.props.isDark ? 'data-bs-theme="light"' : 'data-bs-theme="dark"' } class="carousel slide h-100 carousel-fade">
   <div class="carousel-inner h-100">
     ${carouselItems}
   </div>
-  <button style="filter: invert(1)" class="carousel-control-prev" type="button" data-bs-target="#${this.props.id}" data-bs-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#${this.props.id}" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Vorheriges Bild</span>
   </button>
-  <button style="filter: invert(1)" class="carousel-control-next" type="button" data-bs-target="#${this.props.id}" data-bs-slide="next">
+  <button class="carousel-control-next" type="button" data-bs-target="#${this.props.id}" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Nächstes Bild</span>
   </button>
