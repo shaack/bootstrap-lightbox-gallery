@@ -94,6 +94,25 @@ export class LightboxGallery {
                 this.state.currentIndex = event.to
                 this.updateIndex()
             })
+
+            // Add keyboard navigation
+            this.keyboardHandler = (event) => {
+                if (event.key === 'ArrowLeft') {
+                    event.preventDefault()
+                    const prevButton = this.modal.element.querySelector('.carousel-control-prev')
+                    prevButton.click()
+                } else if (event.key === 'ArrowRight') {
+                    event.preventDefault()
+                    const nextButton = this.modal.element.querySelector('.carousel-control-next')
+                    nextButton.click()
+                }
+            }
+            document.addEventListener('keydown', this.keyboardHandler)
+
+            // Remove keyboard listener when modal is hidden
+            this.modal.element.addEventListener('hidden.bs.modal', () => {
+                document.removeEventListener('keydown', this.keyboardHandler)
+            })
         }
         this.updateIndex()
     }
