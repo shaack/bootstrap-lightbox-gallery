@@ -10,9 +10,9 @@ export class LightboxGallery {
 
     constructor(elements, props = {}) {
         this.props = {
-            id: "lightboxGallery", // change this, if you have multiple galleries on one page
+            id: "lightboxGallery", // change this if you have multiple galleries on one page. The id must be unique per gallery.
             title: "Lightbox Gallery", // set the name, it will be displayed
-            theme: "dark" // set to "light", if you want to display the images on light background
+            theme: "dark" // set to "light" if you want to display the images on a light background
         }
         Object.assign(this.props, props)
         this.props.isDark = props.theme === "dark"
