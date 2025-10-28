@@ -12,7 +12,8 @@ export class LightboxGallery {
         this.props = {
             id: "lightboxGallery", // change this if you have multiple galleries on one page. The id must be unique per gallery.
             title: "Lightbox Gallery", // set the name, it will be displayed
-            theme: "dark" // set to "light" if you want to display the images on a light background
+            theme: "dark", // set to "light" if you want to display the images on a light background
+            useArrowKeys: true // set to false if you don't want to use the arrow keys to navigate the images
         }
         Object.assign(this.props, props)
         this.props.isDark = props.theme === "dark"
@@ -96,23 +97,25 @@ export class LightboxGallery {
             })
 
             // Add keyboard navigation
-            this.keyboardHandler = (event) => {
-                if (event.key === 'ArrowLeft') {
-                    event.preventDefault()
-                    const prevButton = this.modal.element.querySelector('.carousel-control-prev')
-                    prevButton.click()
-                } else if (event.key === 'ArrowRight') {
-                    event.preventDefault()
-                    const nextButton = this.modal.element.querySelector('.carousel-control-next')
-                    nextButton.click()
+            if (this.props.useArrowKeys) {
+                this.keyboardHandler = (event) => {
+                    if (event.key === 'ArrowLeft') {
+                        event.preventDefault()
+                        const prevButton = this.modal.element.querySelector('.carousel-control-prev')
+                        prevButton.click()
+                    } else if (event.key === 'ArrowRight') {
+                        event.preventDefault()
+                        const nextButton = this.modal.element.querySelector('.carousel-control-next')
+                        nextButton.click()
+                    }
                 }
-            }
-            document.addEventListener('keydown', this.keyboardHandler)
+                document.addEventListener('keydown', this.keyboardHandler)
 
-            // Remove keyboard listener when modal is hidden
-            this.modal.element.addEventListener('hidden.bs.modal', () => {
-                document.removeEventListener('keydown', this.keyboardHandler)
-            })
+                // Remove keyboard listener when modal is hidden
+                this.modal.element.addEventListener('hidden.bs.modal', () => {
+                    document.removeEventListener('keydown', this.keyboardHandler)
+                })
+            }
         }
         this.updateIndex()
     }
