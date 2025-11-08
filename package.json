@@ -16,6 +16,6 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap-show-modal": "^6.0.10",
-    "cm-web-modules": "^2.4.4"
+    "cm-web-modules": "^2.5.0"
   }
 }
