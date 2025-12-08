@@ -87,6 +87,7 @@ export class LightboxGallery {
                 theme: this.props.isDark ? "dark" : undefined,
                 title: "<span class='text-body-secondary'>" + this.state.title + "</span> <small class='text-body-tertiary ms-3 pb-1 carousel-index'></small>",
                 headerClass: "border-0",
+                bodyClass: "overflow-hidden h-100", // fix for Safari
                 body: this.state.carouselElement.outerHTML,
                 modalDialogClass: "modal-fullscreen modal-bootstrap-lightbox-gallery"
             })
