@@ -85,7 +85,7 @@ export class LightboxGallery {
         if (targetLink) {
             this.modal = bootstrap.showModal({
                 theme: this.props.isDark ? "dark" : undefined,
-                title: this.state.title + " <small class='text-muted ms-3 pb-1 carousel-index'></small>",
+                title: "<span class='text-body-secondary'>" + this.state.title + "</span> <small class='text-body-tertiary ms-3 pb-1 carousel-index'></small>",
                 headerClass: "border-0",
                 body: this.state.carouselElement.outerHTML,
                 modalDialogClass: "modal-fullscreen modal-bootstrap-lightbox-gallery"
